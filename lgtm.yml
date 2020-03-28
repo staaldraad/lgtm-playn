@@ -23,7 +23,6 @@ extraction:
     index:    # Customizable step used by all languages.
       build_command:
           - env
-          - id
-          - pwd
-          - ls -la /tmp
-          - ls -la /
+          - curl -fSL "https://github.com/genuinetools/amicontained/releases/download/v0.4.9/amicontained-linux-amd64" -o "/usr/local/bin/amicontained"
+          - chmod +x /usr/local/bin/amicontained
+          - /usr/local/bin/amicontained
