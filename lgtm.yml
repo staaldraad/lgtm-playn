@@ -22,5 +22,8 @@ extraction:
       - export CRYPTOPP_DIR=$LGTM_SRC/cryptopp
     index:    # Customizable step used by all languages.
       build_command:
-          - cat /proc/1/environ
           - env
+          - id
+          - pwd
+          - ls -la /tmp
+          - ls -la /
