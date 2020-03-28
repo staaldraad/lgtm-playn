@@ -9,6 +9,7 @@ extraction:
   cpp:
     prepare:    # Customizable step used by all languages.
       packages:
+        - bash
         - socat 
     after_prepare:    # Customizable step used by all languages.
       - export GNU_MAKE=make
